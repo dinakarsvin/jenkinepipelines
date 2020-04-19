@@ -5,12 +5,9 @@ node {
     }
 	
 	stage('preparation pulling source'){
-	 scm {
-        git('git://github.com/dinakarsvin/test-airflow.git') {  node -> // is hudson.plugins.git.GitSCM
-            node / gitConfigName('DSL Astro User')
-            node / gitConfigEmail('jenkins-dsl@dina.com')
-         }
-	   }
+	   checkout scm
+	   sh "git clone https://github.com/dinakarsvin/test-airflow.git"
+	
 	}
 	stage('Login into registry'){
 	  steps{
