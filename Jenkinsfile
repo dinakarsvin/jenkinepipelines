@@ -4,6 +4,9 @@ node {
 	   checkout scm
     }
 	
+always {
+     cleanWs()
+   }
 	stage('preparation pulling source'){
 	   checkout scm
 	   sh "git clone https://github.com/dinakarsvin/test-airflow.git"
